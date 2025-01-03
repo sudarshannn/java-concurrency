@@ -1,7 +1,8 @@
 package com.before_final;
 
+// https://leetcode.ca/2019-04-25-1242-Web-Crawler-Multithreaded/
+// go to last
 import java.util.*;
-import java.util.concurrent.*;
 
 public class Webcrawler {
     private String startUrl;
@@ -20,11 +21,6 @@ public class Webcrawler {
 
     private void crawlDfs(String url) {
         visited.add(url);
-        ScheduledExecutorService service = Executors.newScheduledThreadPool(10);
-        service.schedule(() -> {
-            return "dcl";
-        }, 100, TimeUnit.SECONDS);
-
         List<Thread> threads = new ArrayList<>();
         for (String relatedUrl : getRelatedUrls(url)) {
             if (!visited.contains(relatedUrl)) {
